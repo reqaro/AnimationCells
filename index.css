@@ -34,7 +34,7 @@ a {
     justify-content: center;
     align-content: center;
     min-height: 350px;
-    grid-template: repeat(auto-fit, 60px) / repeat(12, 120px);
+    grid-template: repeat(auto-fit, 60px) / repeat(4, 120px);
     gap: 15px;
 
 }

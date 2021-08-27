@@ -19,17 +19,14 @@ const wrapItemsCreator = (items) => {
     func();
     return wrapItems.join('');
 };
-const wrapItems = wrapItemsCreator(64); // 16 32 64 ну и т.д
+const wrapItems = wrapItemsCreator(16);
 $root.insertAdjacentHTML('beforeend', `<section class="wrapCell">${wrapItems}</section>`);
 $root.insertAdjacentHTML('beforeend', `<section id="console" class="console"></section>`);
-$root.insertAdjacentHTML('beforeend', `
-<div class="btn">
-<a id="start" class="start">Start</a>
-</div>`);
+$root.insertAdjacentHTML('beforeend', `<div class="btn"><a id="start" class="start">Start</a></div>`);
 const $console = document.getElementById('console');
 const printConsole = (text) => {
     $console.insertAdjacentHTML('beforeend', `<p>${text} </p>`);
-    $console.scrollTop = 9999; // автоскролл вниз
+    $console.scrollTop = 9999;
 };
 const $cells = document.getElementsByClassName('cell');
 const $startButton = document.getElementById('start');
@@ -39,8 +36,8 @@ $startButton.addEventListener('click', () => __awaiter(void 0, void 0, void 0, f
     for (let elem of $cells) {
         yield new Promise((resolve) => {
             setTimeout(() => {
-                printConsole(`${elem.classList[1]} animation <span class="animation_start">start</span>`);
                 elem.classList.add('cell__anim');
+                printConsole(`${elem.classList[1]} animation <span class="animation_start">start</span>`);
                 resolve();
             }, 100);
         }).then(() => setTimeout(() => printConsole(`${elem.classList[1]} animation <span class="animation_finish">finish</span>`), 400));
