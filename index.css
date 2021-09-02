@@ -34,7 +34,7 @@ a {
     justify-content: center;
     align-content: center;
     min-height: 350px;
-    grid-template: repeat(auto-fit, 60px) / repeat(4, 120px);
+    grid-template: repeat(auto-fit, 60px) / repeat(8, 120px);
     gap: 15px;
 
 }
@@ -50,8 +50,8 @@ a {
 }
 
 .cell__anim {
-    transform: rotateX(180deg);
-    transition: transform .4s linear;
+    animation: .4s rotateAnimation linear ;
+    animation-fill-mode: forwards;
 }
 
 .console {
@@ -98,5 +98,14 @@ a {
     margin-top: 35px;
     background-color: #3d86ff;
     cursor: pointer;
+}
+
+@keyframes rotateAnimation {
+    0%{
+        transform: rotateX(0deg)
+    }
+    100%{
+        transform: rotateX(180deg)
+    }
 }
 
